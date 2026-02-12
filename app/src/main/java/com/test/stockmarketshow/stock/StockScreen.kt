@@ -13,7 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -50,13 +49,23 @@ fun StockScreen( modifier: Modifier = Modifier,viewModel: StockViewModel) {
 @Composable
 fun StockItem(stock: Stock) {
 
-    val price = rememberUpdatedState(stock.price)
 
     Row(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
 
-        Text(text = stock.name, modifier = Modifier.padding(end = 8.dp))
-        PriceText(price.value)
+        Text(text = stock.name,
+            color = Color.Black,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(end = 8.dp))
 
+        val animatedPrice by animateFloatAsState(
+            targetValue = stock.price.toFloat(),
+            animationSpec = tween(500)
+        )
+
+        Text(
+            text = String.format("%.2f", animatedPrice),
+            color = Color.Green
+            )
     }
 }
 
