@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             StockMarketShowTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding -> // obtain ViewModel inside Compose using hiltViewModel()
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val viewModel: StockViewModel = hiltViewModel()
                     StockScreen(modifier = Modifier.padding(innerPadding), viewModel = viewModel)
                 }
