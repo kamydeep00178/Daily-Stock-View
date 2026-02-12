@@ -11,14 +11,13 @@ import androidx.compose.ui.text.font.FontWeight
 @Composable
 fun PriceText(price: Double) {
 
-    val animated by animateFloatAsState(
+    val animatedPrice by animateFloatAsState(
         targetValue = price.toFloat(),
         animationSpec = tween(500)
     )
 
     Text(
-        text = String.format("%.2f", animated),
-        color = Color.Green,
-        fontWeight = FontWeight.Bold
+        text = String.format("%.2f", animatedPrice),
+        color = Color.Green
     )
 }

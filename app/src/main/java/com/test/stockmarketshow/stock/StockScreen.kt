@@ -1,7 +1,6 @@
 package com.test.stockmarketshow.stock
 
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -57,15 +56,7 @@ fun StockItem(stock: Stock) {
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(end = 8.dp))
 
-        val animatedPrice by animateFloatAsState(
-            targetValue = stock.price.toFloat(),
-            animationSpec = tween(500)
-        )
-
-        Text(
-            text = String.format("%.2f", animatedPrice),
-            color = Color.Green
-            )
+        PriceText(price = stock.price)
     }
 }
 
