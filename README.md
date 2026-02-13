@@ -29,7 +29,7 @@ Learn step-by-step:
 
 ## ✍️ Medium Article
 
-👉 Add your Medium article link here
+👉 https://medium.com/droidstack/building-real-time-stock-updates-in-jetpack-compose-efeb973110b4
 
 
 ---
